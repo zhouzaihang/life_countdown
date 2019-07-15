@@ -31,18 +31,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Life _life;
-
-  @override
-  void initState() {
-    super.initState();
-    _life = ScopedModel.of<Life>(context);
-  }
-
-  void showDefaultYearPicker(BuildContext context) async {
+  void showDefaultYearPicker(BuildContext context, Life life) async {
     final DateTime dateTime = await showDatePicker(
       context: context,
-      initialDate: this._life.birthDay,
+      initialDate: life.birthDay,
       firstDate: DateTime(1950, 1),
       lastDate: DateTime.now(),
       builder: (BuildContext context, Widget child) {
@@ -52,8 +44,8 @@ class _HomePageState extends State<HomePage> {
         );
       },
     );
-    if (dateTime != null && dateTime != this._life.birthDay) {
-      this._life.birthDay = dateTime;
+    if (dateTime != null && dateTime != life.birthDay) {
+      life.birthDay = dateTime;
     }
   }
 
@@ -74,7 +66,7 @@ class _HomePageState extends State<HomePage> {
           IconButton(
               icon: Icon(Icons.settings),
               onPressed: () {
-                showDefaultYearPicker(context);
+                showDefaultYearPicker(context, ScopedModel.of<Life>(context));
               })
         ],
       ),
@@ -84,7 +76,7 @@ class _HomePageState extends State<HomePage> {
           builder: (BuildContext context, Widget child, Life model) {
             return Column(
               children: <Widget>[
-                Grid(life: this._life),
+                Grid(life: model),
                 Padding(
                   padding: const EdgeInsets.only(top: 40, bottom: 20),
                   child: Row(
@@ -97,9 +89,9 @@ class _HomePageState extends State<HomePage> {
                             child: Image.asset("asset/iron_man.png")),
                       ),
                       Text(
-                          this._life.pastLife().toString() +
+                          model.pastLife().toString() +
                               " / " +
-                              this._life.life.toString(),
+                              model.life.toString(),
                           style: TextStyle(
                               fontSize: 48, fontFamily: "Barriecito")),
                     ],
