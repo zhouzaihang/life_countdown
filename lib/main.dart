@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Life Countdown',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Colors.white,
       ),
       home: MyHomePage(
         life: Life(DateTime.now()),
@@ -34,15 +34,45 @@ class _MyHomePageState extends State<MyHomePage> {
     widget.life.birthDay = DateTime(2000, 01, 01);
     return Scaffold(
       appBar: AppBar(
-        title: Text(DateTime.now().toString().substring(0, 10)),
-        centerTitle: true,
-      ),
+          title: Text(
+            DateTime.now().toString().substring(0, 10),
+            style: TextStyle(
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
+                fontFamily: "Barriecito"),
+          ),
+          centerTitle: true,
+          elevation: 0),
       body: Padding(
         padding: const EdgeInsets.all(1.0),
         child: Column(
           children: <Widget>[
             Grid(life: widget.life),
-            Text(widget.life.pastLife().toString()),
+            Padding(
+              padding: const EdgeInsets.only(top: 40, bottom: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(right: 40),
+                    child: Container(
+                        height: 48, child: Image.asset("asset/iron_man.png")),
+                  ),
+                  Text(
+                      widget.life.pastLife().toString() +
+                          " / " +
+                          widget.life.life.toString(),
+                      style: TextStyle(fontSize: 48, fontFamily: "Barriecito")),
+                ],
+              ),
+            ),
+            Text(
+              "Stay Hungry \t Stay Foolish",
+              style: TextStyle(
+                  fontFamily: "Barriecito",
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24),
+            ),
           ],
         ),
       ),

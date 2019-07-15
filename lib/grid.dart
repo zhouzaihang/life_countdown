@@ -9,14 +9,14 @@ class Grid extends StatefulWidget {
 
   static List<int> colors = [
     0xFFFFFFFF,
-    0xDDD4DFE6,
-    0xDD8EC0E4,
-    0xDDCADBE9,
-    0xDD6AAFE6,
-    0xDDA5DFF9,
-    0xDDFEEE7D,
-    0xDDFAB1CE,
-    0xDDFFDA8E
+    0xAAD4DFE6,
+    0xAA8EC0E4,
+    0xAACADBE9,
+    0xAA6AAFE6,
+    0xAAA5DFF9,
+    0xAAFEEE7D,
+    0xAAFAB1CE,
+    0xAAFFDA8E
   ];
 
   static BorderSide _borderThin =
@@ -78,7 +78,7 @@ class _GridState extends State<Grid> {
                       : currentMonth < pastMonth + 10
                           ? Colors.white
                           : Color(Grid.colors[
-                              rng.nextInt(35) > 8 ? 0 : rng.nextInt(9)])),
+                              rng.nextInt(18) > 8 ? 0 : rng.nextInt(9)])),
         ));
       }
       return result;
