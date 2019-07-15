@@ -15,7 +15,7 @@ class Life extends Model{
   }
 
   static int dateDifference(DateTime date1, DateTime date2) {
-    int result = date1.day - date2.day > 0 ? 1 : 0;
+    int result = date1.day - date2.day >= 0 ? 0 : -1;
     return (date1.year - date2.year) * 12 + date1.month - date2.month + result;
   }
 
