@@ -76,3 +76,7 @@ test/
 ios/
 
 pubspec\.lock
+
+my-release-key\.keystore
+
+android/key\.properties
