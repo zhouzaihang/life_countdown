@@ -6,7 +6,8 @@
 
 拿 `Flutter` 写了个计算生命还剩下多久的 `Demo`:
 
-![App 首页](main.jpg)
+<img width="48%" height="100%" src="main.jpg" alt="App 首页"/>
+<img width="48%" height="100%" src="datepicker.jpg" alt="时间选择器"/>
 
 ## 使用
 
