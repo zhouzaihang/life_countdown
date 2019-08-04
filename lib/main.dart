@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                             child: Image.asset("asset/iron_man.png")),
                       ),
                       Text(
-                          model.pastLife().toString() +
+                          model.remainingLife().toString() +
                               " / " +
                               model.life.toString(),
                           style: TextStyle(
