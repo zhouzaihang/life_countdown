@@ -1,7 +1,7 @@
 import 'package:scoped_model/scoped_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Life extends Model{
+class Life extends Model {
   int life = 900;
   String _key;
   DateTime _birthDay = DateTime(2000, 1, 1);
